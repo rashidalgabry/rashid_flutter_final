@@ -15,7 +15,7 @@ class _CallScreenState extends State<CallScreen> {
   @override
   void initState() {
     super.initState();
-    DBHelper.instance.insertRecent(widget.phone); // ✅ هنا المكان الصحيح
+    DBHelper.instance.insertRecent(widget.phone); 
   }
 
   @override
