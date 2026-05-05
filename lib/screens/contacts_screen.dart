@@ -12,12 +12,10 @@ class ContactsScreen extends StatefulWidget {
 
 class _ContactsScreenState extends State<ContactsScreen> {
 
-  // ================================
-  // 1️⃣ المتغيرات (تُضاف هنا بالضبط)
-  // ================================
+  
   List<Contact> contacts = [];
-  List<Contact> filteredContacts = []; // <<< للبحث
-  TextEditingController searchController = TextEditingController(); // <<< للبحث
+  List<Contact> filteredContacts = []; 
+  TextEditingController searchController = TextEditingController(); 
 
   @override
   void initState() {
@@ -25,20 +23,16 @@ class _ContactsScreenState extends State<ContactsScreen> {
     _loadContacts();
   }
 
-  // ================================
-  // 2️⃣ تحميل البيانات من DB
-  // ================================
+  
   Future<void> _loadContacts() async {
     final data = await DBHelper.instance.getAllContacts();
     setState(() {
       contacts = data;
-      filteredContacts = data; // <<< مهمة جدًا
+      filteredContacts = data; 
     });
   }
 
-  // ================================
-  // 3️⃣ دالة البحث (تُضاف هنا)
-  // ================================
+  
   void _search(String query) {
     setState(() {
       filteredContacts = contacts.where((contact) {
@@ -55,13 +49,11 @@ class _ContactsScreenState extends State<ContactsScreen> {
         title: const Text('Contacts'),
       ),
 
-      // ================================
-      // 4️⃣ body كامل بعد التعديل
-      // ================================
+      
       body: Column(
         children: [
 
-          // 🔍 مربع البحث (يُضاف هنا بالضبط)
+         
           Padding(
             padding: const EdgeInsets.all(8),
             child: TextField(
@@ -74,8 +66,6 @@ class _ContactsScreenState extends State<ContactsScreen> {
               ),
             ),
           ),
-
-          // 📇 قائمة جهات الاتصال
           Expanded(
             child: ListView.builder(
               itemCount: filteredContacts.length,
@@ -88,7 +78,6 @@ class _ContactsScreenState extends State<ContactsScreen> {
                   ),
                   subtitle: Text(contact.phone),
 
-                  // فتح تفاصيل جهة الاتصال
                   onTap: () async {
                     final result = await Navigator.push(
                       context,
@@ -99,11 +88,11 @@ class _ContactsScreenState extends State<ContactsScreen> {
                     );
 
                     if (result == true) {
-                      _loadContacts(); // <<< تحديث بعد التعديل
+                      _loadContacts(); 
                     }
                   },
 
-                  // حذف جهة الاتصال
+                  
                   trailing: IconButton(
                     icon: const Icon(Icons.delete),
                     onPressed: () async {
