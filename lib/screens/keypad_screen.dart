@@ -29,24 +29,6 @@ class _KeypadScreenState extends State<KeypadScreen> {
     }
   }
 
-  // Future<void> _saveContact() async {
-  //   if (phoneNumber.isEmpty) return;
-
-  //   final contact = Contact(
-  //     name: '',
-  //     phone: phoneNumber,
-  //   );
-
-  //   await DBHelper.instance.insertContact(contact);
-
-  //   ScaffoldMessenger.of(context).showSnackBar(
-  //     const SnackBar(content: Text('Number saved')),
-  //   );
-
-  //   setState(() {
-  //     phoneNumber = '';
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -67,8 +49,8 @@ class _KeypadScreenState extends State<KeypadScreen> {
           Expanded(
             child: GridView.count(
               crossAxisCount: 3,
-               physics: const NeverScrollableScrollPhysics(), // ✅
-               childAspectRatio: 1.2, // تحكم بالحجم
+               physics: const NeverScrollableScrollPhysics(), 
+               childAspectRatio: 1.2, 
               children: [
                 for (var i = 1; i <= 9; i++)
                   _keyButton(i.toString()),
