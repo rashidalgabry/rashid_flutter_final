@@ -3,7 +3,7 @@ import '../database/db_helper.dart';
 import '../models/contact.dart';
 
 class AddContactScreen extends StatefulWidget {
-  final String phone; // الرقم القادم من Keypad
+  final String phone; 
 
   const AddContactScreen({super.key, required this.phone});
 
@@ -20,7 +20,7 @@ class _AddContactScreenState extends State<AddContactScreen> {
   @override
   void initState() {
     super.initState();
-    phoneController.text = widget.phone; // تعبئة الرقم تلقائيًا
+    phoneController.text = widget.phone; //   
   }
 
   Future<void> _saveContact() async {
