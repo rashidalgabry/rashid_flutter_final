@@ -9,7 +9,6 @@ class Contact {
     required this.phone,
   });
 
-  // Convert object to Map (INSERT / UPDATE)
   Map<String, dynamic> toMap() {
     return {
       'id': id,
@@ -18,7 +17,6 @@ class Contact {
     };
   }
 
-  // Convert Map to Object (SELECT)
   factory Contact.fromMap(Map<String, dynamic> map) {
     return Contact(
       id: map['id'],
